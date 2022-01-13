@@ -124,7 +124,7 @@
       <SubSystem>NotSet</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)x64\Debug;$(SolutionDir)x64\Release;$(SolutionDir)libraries\GLEW\lib\Release\x64;$(SolutionDir)libraries\GLFW\lib-vc2019\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32s.lib;ImGui.lib;libvmath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32s.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -148,6 +148,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Pathfinding_grid\Grid_drawer.cpp" />
+    <ClCompile Include="source\UI\Elements\Combo_box.cpp" />
     <ClCompile Include="source\Pathfinding_grid\Path_finder\A_star_search.cpp" />
     <ClCompile Include="source\Pathfinding_grid\Path_finder\Breadth_first_search.cpp" />
     <ClCompile Include="source\Pathfinding_grid\Path_finder\Path_finder.cpp" />
@@ -171,6 +173,8 @@
     <ClCompile Include="source\UI\UI_event_handler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\Pathfinding_grid\Grid_drawer.h" />
+    <ClInclude Include="source\UI\Elements\Combo_box.h" />
     <ClInclude Include="source\Pathfinding_grid\Path_finder\A_star_search.h" />
     <ClInclude Include="source\Pathfinding_grid\Path_finder\Breadth_first_search.h" />
     <ClInclude Include="source\Pathfinding_grid\Path_finder\Pathfinding_algorimth.h" />

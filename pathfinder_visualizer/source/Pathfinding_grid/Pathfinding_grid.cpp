@@ -1,6 +1,6 @@
 #include "Pathfinding_grid.h"
 
-Pathfinding_grid::Pathfinding_grid() : grid(40, 20)
+Pathfinding_grid::Pathfinding_grid() : grid(80, 40)
 {
     grid.set_tile(3, 3, Tile_type::start);
     grid.set_tile(20, 3, Tile_type::goal);

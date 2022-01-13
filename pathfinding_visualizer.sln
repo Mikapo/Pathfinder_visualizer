@@ -7,9 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "ImGui\ImGui.vcxproj", "{ADC0BF2C-C918-474A-B2DD-4CA5508FFADD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pathfinding_visualizer", "Pathfinder_visulizaer\SortingVisualizerV2.vcxproj", "{F806097F-B87F-41EC-96E6-89DEEEC91A13}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pathfinding_visualizer", "pathfinder_visualizer\pathfinder_visualizer.vcxproj", "{994B7D93-26D2-482F-8432-0394F7AF1AD1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ADC0BF2C-C918-474A-B2DD-4CA5508FFADD} = {ADC0BF2C-C918-474A-B2DD-4CA5508FFADD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +28,6 @@ Global
 		{ADC0BF2C-C918-474A-B2DD-4CA5508FFADD}.Release|x64.Build.0 = Release|x64
 		{ADC0BF2C-C918-474A-B2DD-4CA5508FFADD}.Release|x86.ActiveCfg = Release|Win32
 		{ADC0BF2C-C918-474A-B2DD-4CA5508FFADD}.Release|x86.Build.0 = Release|Win32
-		{F806097F-B87F-41EC-96E6-89DEEEC91A13}.Debug|x64.ActiveCfg = Debug|x64
-		{F806097F-B87F-41EC-96E6-89DEEEC91A13}.Debug|x64.Build.0 = Debug|x64
-		{F806097F-B87F-41EC-96E6-89DEEEC91A13}.Debug|x86.ActiveCfg = Debug|Win32
-		{F806097F-B87F-41EC-96E6-89DEEEC91A13}.Debug|x86.Build.0 = Debug|Win32
-		{F806097F-B87F-41EC-96E6-89DEEEC91A13}.Release|x64.ActiveCfg = Release|x64
-		{F806097F-B87F-41EC-96E6-89DEEEC91A13}.Release|x64.Build.0 = Release|x64
-		{F806097F-B87F-41EC-96E6-89DEEEC91A13}.Release|x86.ActiveCfg = Release|Win32
-		{F806097F-B87F-41EC-96E6-89DEEEC91A13}.Release|x86.Build.0 = Release|Win32
 		{994B7D93-26D2-482F-8432-0394F7AF1AD1}.Debug|x64.ActiveCfg = Debug|x64
 		{994B7D93-26D2-482F-8432-0394F7AF1AD1}.Debug|x64.Build.0 = Debug|x64
 		{994B7D93-26D2-482F-8432-0394F7AF1AD1}.Debug|x86.ActiveCfg = Debug|Win32

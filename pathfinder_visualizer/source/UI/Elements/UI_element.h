@@ -1,6 +1,9 @@
 #pragma once
 
 #include "UI/UI_observer.h"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 #include <unordered_set>
 
 class UI_element

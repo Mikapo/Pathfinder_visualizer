@@ -3,6 +3,7 @@
 #include "Pathfinding_algorimth.h"
 
 #include <future>
+#include <optional>
 
 enum class Pathfinding_algorimths
 {
@@ -14,6 +15,7 @@ class Path_finder
 {
 public:
     Path_finder();
+    ~Path_finder();
 
     void find_path(Grid_interface* grid, int delay);
     void stop_finding_path();
@@ -22,5 +24,6 @@ public:
 
 private:
     Pathfinding_algorimth* algorimth = nullptr;
+    std::optional<Pathfinding_algorimths> next_algorimth;
     std::future<void> thread;
 };

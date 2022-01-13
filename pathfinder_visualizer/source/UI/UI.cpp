@@ -1,6 +1,7 @@
 #include "UI.h"
 
 #include "UI_observer.h"
+#include "Elements/Combo_box.h"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -59,6 +60,7 @@ void UI::setup_elements()
 {
     elements.emplace_back(new Button("start", UI_button_event::start_button_pressed));
     elements.emplace_back(new Button("stop", UI_button_event::stop_button_pressed));
+    elements.emplace_back(new Combo_box("Algorimth", UI_combo_box_event::algorimth, {"Breadth first search", "Dijkstras"}));
 }
 
 void UI::update_elements()

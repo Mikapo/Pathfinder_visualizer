@@ -8,6 +8,12 @@ enum class UI_button_event
 	stop_button_pressed,
 };
 
+enum class UI_combo_box_event
+{
+	none = 0,
+	algorimth
+};
+
 struct UI_status
 {
     std::string paint_mode;

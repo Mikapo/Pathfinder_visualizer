@@ -1,9 +1,5 @@
 #include "Button.h"
 
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
-
 void Button::update()
 {
     if (ImGui::Button(name.c_str()))
