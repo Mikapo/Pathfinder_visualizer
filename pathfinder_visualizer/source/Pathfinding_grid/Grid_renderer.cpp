@@ -46,6 +46,7 @@ void Grid_renderer::draw_tile(Point2d loc, float width, float height, Tile tile)
 {
     const float half_width = width / 2;
     const float half_height = height / 2;
+    loc.Y = COORDINATE_SYSTEM_HEIGHT - loc.Y;
 
     float positions[]{loc.X - half_width, loc.Y - half_height, loc.X + half_width, loc.Y - half_height,
                       loc.X + half_width, loc.Y + half_height, loc.X - half_width, loc.Y + half_height};

@@ -11,11 +11,6 @@ enum class UI_button_event
 enum class UI_combo_box_event
 {
 	none = 0,
-	algorimth
-};
-
-struct UI_status
-{
-    std::string paint_mode;
-    std::string algorithm;
+	algorimth,
+	draw_mode
 };

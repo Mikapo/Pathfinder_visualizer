@@ -21,9 +21,10 @@ void Mouse_input_handler::update(Pathfinding_window* owner)
     double Y;
     glfwGetCursorPos(owner->get_window(), &X, &Y);
 
-    if (result == GLFW_PRESS && !is_pressed)
+    if (result == GLFW_PRESS)
     {
         std::cout << "mouse press X: " << X << " Y: " << Y << "\n";
+        owner->get_grid()->draw_to_grid(X, Y);
         is_pressed = true;
     }
     else if (result == GLFW_RELEASE && is_pressed)

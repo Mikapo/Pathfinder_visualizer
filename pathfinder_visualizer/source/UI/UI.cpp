@@ -61,6 +61,7 @@ void UI::setup_elements()
     elements.emplace_back(new Button("start", UI_button_event::start_button_pressed));
     elements.emplace_back(new Button("stop", UI_button_event::stop_button_pressed));
     elements.emplace_back(new Combo_box("Algorimth", UI_combo_box_event::algorimth, {"Breadth first search", "Dijkstras"}));
+    elements.emplace_back(new Combo_box("Draw mode", UI_combo_box_event::draw_mode, {"Clear", "Wall", "Goal", "Start"}));
 }
 
 void UI::update_elements()

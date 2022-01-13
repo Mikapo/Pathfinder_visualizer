@@ -24,8 +24,6 @@ private:
     void update_elements();
 
     std::unordered_set<UI_observer*> observers;
-    UI_status status;
-    UI_status last_checked;
     std::vector<std::unique_ptr<UI_element>> elements;
     bool hovered_by_mouse = false;
 };

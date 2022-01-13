@@ -30,5 +30,17 @@ void UI_event_handler::on_combo_box_event(std::string input, UI_combo_box_event 
             else if (input == "Dijkstras")
                 owner->get_grid()->switch_path_finding_algorimth(Pathfinding_algorimths::Dijkstras_algorithm);
         }
+
+        case UI_combo_box_event::draw_mode: 
+        {
+            if (input == "Clear")
+                owner->get_grid()->set_draw_mode(Tile_type::empty);
+            else if (input == "Wall")
+                owner->get_grid()->set_draw_mode(Tile_type::wall);
+            else if (input == "Goal")
+                owner->get_grid()->set_draw_mode(Tile_type::goal);
+            else if (input == "Start")
+                owner->get_grid()->set_draw_mode(Tile_type::start);
+        }
     }
 }

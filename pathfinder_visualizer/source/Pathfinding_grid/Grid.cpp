@@ -13,6 +13,10 @@ void Grid::set_tile(size_t column, size_t row, Tile_type type)
     if (columns > columns || row > rows)
         throw("too high arguments passed to set_tile function");
 
+    Tile tile = get_tile(column, row);
+    if (tile.type == Tile_type::goal || tile.type == Tile_type::start)
+        return;
+
     if (type == Tile_type::start)
     {
         if (start_index != -1)
@@ -25,7 +29,7 @@ void Grid::set_tile(size_t column, size_t row, Tile_type type)
     else if (type == Tile_type::goal)
     {
         if (goal_index != -1)
-            tiles[start_index].type = Tile_type::empty;
+            tiles[goal_index].type = Tile_type::empty;
 
         int index = column + columns * row;
         goal_index = index;
