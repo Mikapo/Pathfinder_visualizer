@@ -42,6 +42,7 @@ void Window::init()
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
     glewInit();
+   
 }
 
 void Window::cleanup() 

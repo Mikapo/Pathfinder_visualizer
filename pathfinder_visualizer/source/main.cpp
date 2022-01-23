@@ -1,10 +1,7 @@
 #include "Pathfinding_window.h"
-#include <iostream>
-#include <thread>
 
-int main()
+int WinMain()
 {
     Pathfinding_window window;
-    window.set_background_color(0.0f, 0.0f, 0.0f, 0.0f);
     window.start();
 }

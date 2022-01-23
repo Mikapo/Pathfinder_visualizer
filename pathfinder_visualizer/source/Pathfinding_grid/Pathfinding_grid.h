@@ -13,7 +13,7 @@ public:
     void init();
     void cleanup();
     void set_tile(size_t column, size_t row, Tile_type type) { grid.set_tile(column, row, type); }
-    void render(Dimensions window_dimensions) const { renderer.render(&grid, window_dimensions); }
+    void render(Dimensions window_dimensions) { renderer.render(&grid); }
     void switch_path_finding_algorimth(Pathfinding_algorimths alg) { path_finder.set_algorimth(alg); }
     void start_pathfinding();
     void stop_pathfinding();

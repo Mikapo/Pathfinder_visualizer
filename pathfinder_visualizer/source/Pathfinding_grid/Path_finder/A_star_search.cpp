@@ -10,8 +10,8 @@ void A_star_search::find_path(Grid_interface* grid, int delay)
     Tile goal = grid->get_goal();
 
     auto compare = [](Node* a, Node* b) {
-        int a_value = a->distance_to_goal + a->moves;
-        int b_value = b->distance_to_goal + b->moves;
+        int a_value = a->distance_to_goal + a->moves * 2;
+        int b_value = b->distance_to_goal + b->moves * 2;
         return a_value > b_value;
     };
 

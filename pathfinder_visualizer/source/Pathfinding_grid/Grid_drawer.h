@@ -9,5 +9,5 @@ public:
     void set_mode(Tile_type mode);
 
 private:
-    Tile_type mode = Tile_type::wall;
+    Tile_type mode = Tile_type::empty;
 };

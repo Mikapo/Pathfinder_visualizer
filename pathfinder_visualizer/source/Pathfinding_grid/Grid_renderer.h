@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Rendering/Renderer.h"
 #include "Dimensions.h"
 #include "Grid_interface.h"
+#include "Rendering/Renderer.h"
 
 #include <future>
 #include <vector>
@@ -21,22 +21,30 @@ struct Grid_color
     float A;
 };
 
+
+struct Tile_vertex
+{
+    Tile_vertex() = default;
+    Tile_vertex(float positions[8])
+    {
+        for (size_t i = 0; i < 8; i++)
+            this->positions[i] = positions[i];
+    }
+    float positions[8];
+};
+
 class Grid_renderer
 {
 public:
-  
-    void init(const std::string& shader_path);
+    void init(Grid_interface* grid);
     void cleanup();
-    void render(const Grid_interface* grid, Dimensions window_dimensions) const;
+    void render(const Grid_interface* grid);
 
 private:
-    void draw_tile(Point2d loc, float width, float height, Tile tile) const;
+    void calculate_verices(const Grid_interface* grid);
     Grid_color get_color(Tile tile) const;
-    
 
     Shader* shader;
     Renderer renderer;
-    std::vector<std::future<void>> threads;
-
-    friend void render_thread(const Grid_renderer* rend, const Grid_interface* grid, int hmin, int hmax);
+    std::vector<Tile_vertex> vertices;
 };

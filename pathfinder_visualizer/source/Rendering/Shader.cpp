@@ -5,10 +5,13 @@
 #include <iostream>
 #include <sstream>
 
-Shader::Shader(const std::string& file_path) : m_file_path(file_path), m_shader_id(0)
+Shader::Shader(const std::string& frag_path, const std::string& fert_path)
+    : m_frag_path(frag_path), m_fert_path(fert_path), m_shader_id(0)
 {
-    shader_source source = parse_shader(file_path);
-    m_shader_id = create_shader(source.vertex_source, source.fragment_source);
+    std::string frag_source = parse_shader(frag_path);
+    std::string fert_source = parse_shader(fert_path);
+
+    m_shader_id = create_shader(fert_source, frag_source);
     glUseProgram(m_shader_id);
 }
 
@@ -24,6 +27,12 @@ void Shader::set_uniform4f(const std::string& name, float v1, float v2, float v3
     glUniform4f(location, v1, v2, v3, v4);
 }
 
+void Shader::set_uniform2f(const std::string& name, float v1, float v2) const 
+{
+    int location = get_uniform_location(name);
+    glUniform2f(location, v1, v2);
+}
+
 void Shader::set_uniform1i(const std::string& name, int v1) const
 {
     int location = get_uniform_location(name);
@@ -37,7 +46,7 @@ void Shader::set_uniform_mat4f(const std::string& name, const glm::mat4& matrix)
 }
 
 int Shader::get_uniform_location(const std::string& name) const
-{ 
+{
     /* if (m_uniform_location_cache.find(name) != m_uniform_location_cache.end())
         return m_uniform_location_cache[name];*/
 
@@ -49,9 +58,9 @@ int Shader::get_uniform_location(const std::string& name) const
     }
     else
     {
-        //m_uniform_location_cache[name] = location;
+        // m_uniform_location_cache[name] = location;
         return location;
-    } 
+    }
 }
 
 unsigned int Shader::compile_shader(unsigned int type, const std::string& source)
@@ -95,37 +104,16 @@ unsigned int Shader::create_shader(const std::string& vertex_shader, const std::
     return program;
 }
 
-Shader::shader_source Shader::parse_shader(const std::string& filepath)
+std::string Shader::parse_shader(const std::string& filepath)
 {
-    enum class shader_type
-    {
-        NONE = -1,
-        VERTEX = 0,
-        FRAGMENT = 1
-    };
 
     std::ifstream stream(filepath);
-    std::stringstream ss[2];
-    shader_type type = shader_type::NONE;
+    std::stringstream ss[1];
     std::string line;
 
     while (getline(stream, line))
     {
-        if (line.find("shader") != std::string::npos)
-        {
-            if (line.find("vertex") != std::string::npos)
-            {
-                type = shader_type::VERTEX;
-            }
-            else if (line.find("fragment") != std::string::npos)
-            {
-                type = shader_type::FRAGMENT;
-            }
-        }
-        else
-        {
-            ss[static_cast<int>(type)] << line << '\n';
-        }
+        ss[0] << line << '\n';
     }
-    return {ss[0].str(), ss[1].str()};
+    return ss[0].str();
 }

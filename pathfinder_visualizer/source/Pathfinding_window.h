@@ -5,6 +5,7 @@
 #include "Mouse_input_handler.h"
 #include "Pathfinding_grid/Pathfinding_grid.h"
 
+
 class Pathfinding_window : public Window
 {
 public:
@@ -23,4 +24,5 @@ private:
     UI_event_handler ui_event_handler;
     Mouse_input_handler mouse_input_handler;
     Pathfinding_grid grid;
+   
 };

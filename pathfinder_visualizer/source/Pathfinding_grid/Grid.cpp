@@ -5,7 +5,7 @@ Grid::Grid(size_t columns, size_t rows) : columns(columns), rows(rows)
     tiles.reserve(columns * rows);
     for (size_t a = 0; a < rows; a++)
         for (size_t b = 0; b < columns; b++)
-            tiles.push_back(Tile{ Tile_type::empty, (int)b, (int)a });
+            tiles.push_back(Tile{Tile_type::empty, (int)b, (int)a});
 }
 
 void Grid::set_tile(size_t column, size_t row, Tile_type type)
@@ -51,7 +51,9 @@ std::vector<Tile> Grid::get_neighbours(size_t column, size_t row) const
 {
     std::vector<Tile> output;
     output.reserve(4);
-    int size = tiles.size();
+
+    if (column > columns - 2 || row > rows - 2)
+        return output;
 
     // top
     if (is_valid_tile_index(column + columns * (row - 1)))

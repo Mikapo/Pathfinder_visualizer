@@ -16,6 +16,7 @@ public:
     virtual void reset() override;
     Tile get_start() const override;
     Tile get_goal() const override;
+    const std::vector<Tile>& get_tiles() const override { return tiles; }
 
 private:
     bool is_not_wall(size_t column, size_t row) const;

@@ -1,12 +1,16 @@
 #include "Pathfinding_grid.h"
 
-Pathfinding_grid::Pathfinding_grid() : grid(80, 40)
+#include <iostream>
+
+Pathfinding_grid::Pathfinding_grid() : grid(60, 30)
 {
-    grid.set_tile(0, 0, Tile_type::start);
+    grid.set_tile(5, 5, Tile_type::start);
     grid.set_tile(20, 3, Tile_type::goal);
+
+    
 }
 
-void Pathfinding_grid::init() { renderer.init("shaders/Shader.shader"); }
+void Pathfinding_grid::init() { renderer.init(&grid); }
 
 void Pathfinding_grid::cleanup() { renderer.cleanup(); }
 

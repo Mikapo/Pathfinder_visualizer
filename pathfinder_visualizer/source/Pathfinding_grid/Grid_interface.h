@@ -27,6 +27,7 @@ class Grid_interface
 public:
     virtual void set_tile(size_t column, size_t row, Tile_type type) = 0;
     virtual Tile get_tile(size_t column, size_t row) const = 0;
+    virtual const std::vector<Tile>& get_tiles() const = 0;
     virtual void get_dimensions(size_t& out_width, size_t& out_height) const = 0;
     virtual std::vector<Tile> get_neighbours(size_t column, size_t row) const = 0;
     virtual void set_checked(size_t column, size_t row) = 0;
